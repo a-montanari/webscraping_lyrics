@@ -1,6 +1,6 @@
 # Web Scraping Lyrics
 
-This repositotry contains a series of functions that can be used to scrape [AZLyrics.com](https://www.azlyrics.com) and download lyrics in *txt* format.
+This repository contains a series of functions that can be used to scrape [AZLyrics.com](https://www.azlyrics.com) and download lyrics in *txt* format.
 
 ## Functions
 
