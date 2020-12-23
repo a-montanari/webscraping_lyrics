@@ -7,11 +7,11 @@ This repositotry contains a series of functions that can be used to scrape [AZLy
 - `save_file(path, text, replace=False)`  
 This is an auxiliary function used to save a given *text* in a *txt* file.
   
-- `get_lyrics(song_url, save=True, by_decade=True, replace=False, folder="songs")`  
+- `get_lyrics(song_url, save=True, by_decade=False, replace=False, folder="songs")`  
 This function can be used to download the lyrics of a **single song**, given its page url.
     - *song_url*: The AZLyrics url of the page containing the song.
     - *save*: if True (default), the lyrics are saved in a txt file named as the song title. If False, the function just returns the song title, lyrics and year as a 3-dimensional tuple.
-    - *by_decade*: if True (default), and *save*=True, the lyrics are saved in a folder named as the decade when the song was produced. If False, and *save*=True, the lyrics are just stored in a generic folder.
+    - *by_decade*: if True, and *save*=True, the lyrics are saved in a folder named as the decade when the song was produced. If False (default), and *save*=True, the lyrics are just stored in a generic folder.
     - *folder*: the name of the folder where the txt lyrics will be saved.
   
 - `scrape_artist(az_url, sleep="random", by_decade=True, replace=False, folder="songs")`  
@@ -51,4 +51,4 @@ Downloading all lyrics of a given artist:
   
 Downloading a single song lyrics:
 > `the_chain = "https://www.azlyrics.com/lyrics/fleetwoodmac/thechain.html"`  
-> `get_lyrics(the_chain, by_decade=False, folder="fwm")`
+> `get_lyrics(the_chain, folder="fwm")`
