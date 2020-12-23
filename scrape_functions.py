@@ -22,7 +22,7 @@ def save_file(path, text, replace=False):
         file.close()
 
 
-def get_lyrics(song_url, save=False, by_decade=True, replace=False, folder="songs"):
+def get_lyrics(song_url, save=True, by_decade=False, replace=False, folder="songs"):
     song = urlopen(song_url)
     soup = BeautifulSoup(song.read(), "html.parser")
     lyrics = soup.find_all("div")[20].get_text()
