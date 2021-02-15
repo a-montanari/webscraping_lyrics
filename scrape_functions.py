@@ -1,12 +1,17 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import time
 import random
 import os
+
 from string import ascii_lowercase
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
 
 
-def save_file(path, text, replace=False):
+def save_file(
+    path,
+    text,
+    replace=False
+):
     if not replace:
         if os.path.exists(os.path.relpath(path + ".txt")):
             file = open(path + "_2" + ".txt", "w")
@@ -22,7 +27,13 @@ def save_file(path, text, replace=False):
         file.close()
 
 
-def get_lyrics(song_url, save=True, by_decade=False, replace=False, folder="songs"):
+def get_lyrics(
+    song_url, 
+    save=True, 
+    by_decade=False, 
+    replace=False, 
+    folder="songs"
+):
     song = urlopen(song_url)
     soup = BeautifulSoup(song.read(), "html.parser")
     lyrics = soup.find_all("div")[20].get_text()
@@ -52,7 +63,13 @@ def get_lyrics(song_url, save=True, by_decade=False, replace=False, folder="song
                 save_file(folder + "/decades/" + decade + "/" + file_title, text=lyrics, replace=replace)
 
 
-def scrape_artist(az_url, sleep="random", by_decade=True, replace=False, folder="songs"):
+def scrape_artist(
+    az_url, 
+    sleep="random", 
+    by_decade=True, 
+    replace=False, 
+    folder="songs"
+):
     home = "https://www.azlyrics.com/"
     main_page = urlopen(az_url)
     bs = BeautifulSoup(main_page.read(), "html.parser")
@@ -74,7 +91,10 @@ def scrape_artist(az_url, sleep="random", by_decade=True, replace=False, folder=
         time.sleep(rt)  # This is to avoid being recognized as a bot
 
 
-def get_artists(letter, home="https://www.azlyrics.com/"):
+def get_artists(
+    letter, 
+    home="https://www.azlyrics.com/"
+):
     url = home + letter + ".html"
     page = urlopen(url)
     soup = BeautifulSoup(page.read(), "html.parser")
@@ -87,7 +107,13 @@ def get_artists(letter, home="https://www.azlyrics.com/"):
     return artists_urls, artists_names
 
 
-def scrape_all(letters="all", sleep="random", by_decade=True, replace=False, folder="songs"):
+def scrape_all(
+    letters="all", 
+    sleep="random", 
+    by_decade=True,
+    replace=False, 
+    folder="songs"
+):
     if letters == "all":
         lets = list()
         for let in ascii_lowercase:
