@@ -2,7 +2,7 @@
 
 This repository contains a series of functions that can be used to scrape [AZLyrics.com](https://www.azlyrics.com) and download lyrics in *txt* format.  
   
-Lyrics can be used for many *Natural Language Processing* tasks: as an example, I have uploaded a R Markdown file containing the Sentiment Analysis of **Bruce Springsteen**'s songs. You can also read the report on [my website](https://amontanari.altervista.org/webscraping-lyric/).
+Lyrics can be used for many *Natural Language Processing* tasks: as an example, you can read on [my website](https://amontanari.altervista.org/webscraping-lyric/) the report of my Sentiment Analysis of **Bruce Springsteen**'s songs.
 
 ## Functions
 
